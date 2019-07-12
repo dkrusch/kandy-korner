@@ -56,7 +56,7 @@ class Kennel extends Component {
                     return <EmployeeList employees={this.state.employees} />
                 }} />
                 <Route path="/candies" render={(props) => {
-                    return <CandyList candies={this.state.candies} />
+                    return <CandyList candies={this.state.candies} type={this.state.candyTypes}/>
                 }} />
             </React.Fragment>
         )
