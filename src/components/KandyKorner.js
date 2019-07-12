@@ -30,12 +30,12 @@ class Kennel extends Component {
     ]
 
     candyArray = [
-        { id: 1, name: "Doodles" },
-        { id: 2, name: "Jack" },
-        { id: 3, name: "Angus" },
-        { id: 4, name: "Henley" },
-        { id: 5, name: "Derkins" },
-        { id: 6, name: "Checkers" }
+        { id: 1, name: "Doodles", typeid: 1},
+        { id: 2, name: "Jack", typeid: 1},
+        { id: 3, name: "Angus", typeid: 2},
+        { id: 4, name: "Henley", typeid: 3},
+        { id: 5, name: "Derkins", typeid: 3},
+        { id: 6, name: "Checkers", typeid: 4}
     ]
 
     state = {
