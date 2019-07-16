@@ -1,29 +1,62 @@
 {
-    "stores": [
-      { "id": 1, "name": "Nashville North", "address": "500 Circle Way" },
-      { "id": 2, "name": "Nashville South", "address": "10101 Binary Court" }
+  "stores": [
+    {
+      "id": 1,
+      "name": "Nashville North",
+      "address": "500 Circle Way"
+    },
+    {
+      "id": 2,
+      "name": "Nashville South",
+      "address": "10101 Binary Court"
+    }
   ],
-
   "employees": [
-      { "id": 1, "name": "Jessica Younker" },
-      { "id": 2, "name": "Jordan Nelson" },
-      { "id": 3, "name": "Zoe LeBlanc" },
-      { "id": 4, "name": "Blaise Roberts" }
+    {
+      "id": 1,
+      "name": "Jessica Younker"
+    },
+    {
+      "id": 2,
+      "name": "Jordan Nelson"
+    },
+    {
+      "id": 3,
+      "name": "Zoe LeBlanc"
+    },
+    {
+      "id": 4,
+      "name": "Blaise Roberts"
+    }
   ],
-
   "candyTypes": [
-      { "id": 1, "name": "Ooodles" },
-      { "id": 2, "name": "Oack" },
-      { "id": 3, "name": "Oangus" },
-      { "id": 4, "name": "Oenley" }
+    {
+      "id": 1,
+      "name": "Ooodles"
+    },
+    {
+      "id": 2,
+      "name": "Oack"
+    },
+    {
+      "id": 3,
+      "name": "Oangus"
+    },
+    {
+      "id": 4,
+      "name": "Oenley"
+    }
   ],
-
   "candies": [
-      { "id": 1, "name": "Doodles", "typeid": 1},
-      { "id": 2, "name": "Jack", "typeid": 1},
-      { "id": 3, "name": "Angus", "typeid": 2},
-      { "id": 4, "name": "Henley", "typeid": 3},
-      { "id": 5, "name": "Derkins", "typeid": 3},
-      { "id": 6, "name": "Checkers", "typeid": 4}
+    {
+      "id": 5,
+      "name": "Derkins",
+      "typeid": 3
+    },
+    {
+      "id": 6,
+      "name": "Checkers",
+      "typeid": 4
+    }
   ]
 }

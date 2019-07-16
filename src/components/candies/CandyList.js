@@ -16,6 +16,7 @@ class CandyList extends Component {
                             .name
                         }
                         </h5>
+                        <button onClick={() => this.props.deleteCandy(candy.id)} className="card-link">Discontinue</button>
                     </div>
                 )
             }
