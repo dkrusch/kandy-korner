@@ -10,39 +10,43 @@ import "bootstrap/dist/css/bootstrap.min.css"
 
 
 class Kennel extends Component {
-    storeArray = [
-        { id: 1, name: "Nashville North", address: "500 Circle Way" },
-        { id: 2, name: "Nashville South", address: "10101 Binary Court" }
-    ]
-
-    employeeArray = [
-        { id: 1, name: "Jessica Younker" },
-        { id: 2, name: "Jordan Nelson" },
-        { id: 3, name: "Zoe LeBlanc" },
-        { id: 4, name: "Blaise Roberts" }
-    ]
-
-    candyTypeArray = [
-        { id: 1, name: "Ooodles" },
-        { id: 2, name: "Oack" },
-        { id: 3, name: "Oangus" },
-        { id: 4, name: "Oenley" }
-    ]
-
-    candyArray = [
-        { id: 1, name: "Doodles" },
-        { id: 2, name: "Jack" },
-        { id: 3, name: "Angus" },
-        { id: 4, name: "Henley" },
-        { id: 5, name: "Derkins" },
-        { id: 6, name: "Checkers" }
-    ]
+    deleteCandy = id => {
+        console.log("hello")
+        console.log(id)
+        const newCandies = {}
+        fetch(`http://localhost:5002/candies/${id}`, {
+            method: "DELETE"
+        })
+        .then(c => c.json())
+        .then(() => fetch("http://localhost:5002/candies"))
+        .then(current => current.json())
+        .then(candies => newCandies.candies = candies)
+        .then(() => this.setState(newCandies))
+    }
 
     state = {
-        stores: this.storeArray,
-        employees: this.employeeArray,
-        candyTypes: this.candyTypeArray,
-        candies: this.candyArray
+        stores: [],
+        employees: [],
+        candies: [],
+        candyTypes: []
+    }
+
+    componentDidMount() {
+        const newState = {}
+        fetch("http://localhost:5002/stores")
+        .then(a => a.json())
+        .then(store => newState.stores = store)
+        .then(() => fetch("http://localhost:5002/employees"))
+        .then(e => e.json())
+        .then(employee => newState.employees = employee)
+        .then(() => fetch("http://localhost:5002/candies"))
+        .then(c => c.json())
+        .then(candy => newState.candies = candy)
+        .then(() => fetch("http://localhost:5002/candyTypes"))
+        .then(t => t.json())
+        .then(type => newState.candyTypes = type)
+        .then(() => console.log(newState))
+        .then(() => this.setState(newState))
     }
 
     render()
@@ -50,13 +54,14 @@ class Kennel extends Component {
         return (
             <React.Fragment>
                 <Route exact path="/" render={(props) => {
+                    console.log(this.state)
                     return <StoreList stores={this.state.stores} />
                 }} />
                 <Route path="/employees" render={(props) => {
                     return <EmployeeList employees={this.state.employees} />
                 }} />
                 <Route path="/candies" render={(props) => {
-                    return <CandyList candies={this.state.candies} type={this.state.candyTypes}/>
+                    return <CandyList deleteCandy={this.deleteCandy} candies={this.state.candies} type={this.state.candyTypes}/>
                 }} />
             </React.Fragment>
         )
